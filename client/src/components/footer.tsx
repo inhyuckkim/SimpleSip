@@ -12,7 +12,7 @@ export default function Footer() {
               <img 
                 src="/attached_assets/Gemini_Generated_Image_kuw4kxkuw4kxkuw4_1753123145947.png" 
                 alt="SimpleSip Logo" 
-                className="w-12 h-12 object-contain"
+                className="w-16 h-16 object-contain"
               />
             </div>
             <p className="text-gray-400 mb-4">

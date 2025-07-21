@@ -29,7 +29,7 @@ export default function Navigation() {
             <img 
               src="/attached_assets/Gemini_Generated_Image_kuw4kxkuw4kxkuw4_1753123145947.png" 
               alt="SimpleSip Logo" 
-              className="w-12 h-12 object-contain"
+              className="w-20 h-20 object-contain"
             />
           </Link>
 
