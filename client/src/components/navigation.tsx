@@ -26,10 +26,11 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-matcha-dark rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">SS</span>
-            </div>
-            <span className="text-xl font-bold text-gray-900">Simple Sip</span>
+            <img 
+              src="/attached_assets/Gemini_Generated_Image_kuw4kxkuw4kxkuw4_1753123145947.png" 
+              alt="SimpleSip Logo" 
+              className="w-12 h-12 object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
