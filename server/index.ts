@@ -13,6 +13,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Serve static assets
+app.use('/attached_assets', express.static('attached_assets'));
+
 // Session middleware
 app.use(session({
   secret: process.env.SESSION_SECRET || 'simplesip-session-secret',
