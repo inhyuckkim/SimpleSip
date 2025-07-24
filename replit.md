@@ -14,6 +14,8 @@ SimpleSip is a modern e-commerce website built for selling the SimpleSip Portabl
   - Banana Matcha Powder
 - **Enhanced Product Page**: Redesigned to showcase both main device and flavor powders
 - **Home Page Enhancement**: Added flavor powders preview section
+- **How It Works Page**: Created comprehensive 3-step process page with step-by-step images
+- **Navigation Update**: Added "How It Works" to main navigation menu
 - **Comprehensive Product Descriptions**: All flavor powders include compatibility messaging with the main device
 
 ## User Preferences
