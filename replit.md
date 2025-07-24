@@ -106,14 +106,29 @@ This is a full-stack web application built with a **monorepo structure** using:
 - Replit-specific plugins for development environment
 
 ### Production Build
-1. **Frontend**: `vite build` creates optimized static assets
-2. **Backend**: `esbuild` bundles server code for Node.js
-3. **Static Serving**: Express serves built frontend assets
+1. **Frontend**: `vite build` creates optimized static assets in `dist/public/`
+2. **Backend**: `esbuild` bundles server code to `dist/index.js`
+3. **Static Serving**: Express serves built frontend assets from `dist/public/`
 4. **Database**: Ready for PostgreSQL deployment with Drizzle migrations
 
 ### Environment Setup
 - Database URL configuration ready for PostgreSQL
 - Session management for cart functionality
 - Static asset serving in production mode
+- `NODE_ENV=production` properly sets production mode
 
-The application is architected for easy deployment to platforms like Replit, Vercel, or traditional hosting with PostgreSQL databases.
+### Deployment Configuration (Fixed - July 24, 2025)
+**Issue**: Deployment was blocked due to development configuration being used instead of production.
+
+**Applied Fixes**:
+1. ✅ **Build Command**: Already configured in `.replit` as `build = ["npm", "run", "build"]`
+2. ✅ **Production Run Command**: Already configured in `.replit` as `run = ["npm", "run", "start"]`
+3. ✅ **Environment Detection**: Enhanced server to use explicit `NODE_ENV` check alongside Express environment detection
+4. ✅ **Production Scripts**: 
+   - `npm run build`: Builds frontend and backend for production
+   - `npm start`: Runs with `NODE_ENV=production node dist/index.js`
+5. ✅ **Build Verification**: Successfully tested production build - assets generated correctly in `dist/` directory
+
+**Deployment Status**: ✅ Ready for production deployment via Replit's deployment feature.
+
+The application is now properly configured for deployment to Replit Deployments with correct production settings.
