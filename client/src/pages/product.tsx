@@ -26,7 +26,9 @@ export default function Product() {
     queryKey: ["/api/products"],
   });
 
-  const product = products?.[0]; // SimpleSip Portable Matcha Maker
+  // Separate main product from flavor powders
+  const mainProduct = products?.find(p => p.name.includes("Portable Matcha Maker"));
+  const flavorPowders = products?.filter(p => !p.name.includes("Portable Matcha Maker")) || [];
 
   const productImages = [
     "/attached_assets/Gemini_Generated_Image_2e5fpd2e5fpd2e5f_1753122266714.png",
@@ -50,13 +52,11 @@ export default function Product() {
     "Quick Start Guide"
   ];
 
-  const handleAddToCart = () => {
-    if (!product) return;
-    
+  const handleAddToCart = (product: Product) => {
     addToCart({ productId: product.id, quantity: 1 });
     toast({
       title: "Added to cart!",
-      description: "SimpleSip Portable Matcha Maker has been added to your cart.",
+      description: `${product.name} has been added to your cart.`,
     });
   };
 
@@ -71,7 +71,7 @@ export default function Product() {
     );
   }
 
-  if (!product) {
+  if (!mainProduct) {
     return (
       <div className="pt-20 pb-16 text-center">
         <h1 className="text-2xl font-bold text-gray-900">Product not found</h1>
@@ -188,7 +188,7 @@ export default function Product() {
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
                 <span className="text-3xl font-bold text-matcha-dark">
-                  ${(product.price / 100).toFixed(2)}
+                  ${(mainProduct.price / 100).toFixed(2)}
                 </span>
                 <Badge variant="secondary" className="bg-red-100 text-red-800">
                   🔥 Limited Time Offer
@@ -197,7 +197,7 @@ export default function Product() {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
-                  onClick={handleAddToCart}
+                  onClick={() => handleAddToCart(mainProduct)}
                   disabled={isAddingToCart}
                   className="bg-matcha-dark hover:bg-matcha-medium transform hover:scale-105 transition-all duration-300 shadow-lg flex-1"
                   size="lg"
@@ -254,6 +254,77 @@ export default function Product() {
               <h4 className="font-semibold text-gray-900 mb-2">📚 Study Fuel</h4>
               <p className="text-gray-600">Studying late and want a focused pick-me-up? No problem, your SimpleSip is silent and ready.</p>
             </div>
+          </div>
+        </motion.div>
+
+        {/* Flavor Powders Section */}
+        <motion.div 
+          className="mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              SimpleSip Flavor Powders
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Enhance your SimpleSip experience with our premium flavor powders. Each blend is specially formulated to work perfectly with your Portable Matcha Maker, creating delicious variations of your favorite matcha drink.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {flavorPowders.map((powder, index) => (
+              <motion.div
+                key={powder.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={powder.imageUrl} 
+                    alt={powder.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{powder.name}</h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">{powder.description}</p>
+                  
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-2xl font-bold text-matcha-dark">
+                      ${(powder.price / 100).toFixed(2)}
+                    </span>
+                    <Badge variant="secondary" className="bg-green-100 text-green-800">
+                      In Stock
+                    </Badge>
+                  </div>
+
+                  <Button 
+                    onClick={() => handleAddToCart(powder)}
+                    disabled={isAddingToCart}
+                    className="w-full bg-matcha-dark hover:bg-matcha-medium transform hover:scale-105 transition-all duration-300"
+                  >
+                    <ShoppingCart className="w-4 h-4 mr-2" />
+                    Add to Cart
+                  </Button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-12 p-6 bg-green-50 rounded-2xl">
+            <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">Perfect Pairing</h3>
+            <p className="text-gray-700 text-center max-w-2xl mx-auto">
+              All SimpleSip Flavor Powders are designed to work seamlessly with your SimpleSip Portable Matcha Maker. 
+              Simply add your favorite flavor powder along with traditional matcha for a personalized drink experience. 
+              Each powder contains all-natural ingredients and blends perfectly for both hot and iced beverages.
+            </p>
           </div>
         </motion.div>
       </div>

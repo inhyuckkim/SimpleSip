@@ -66,6 +66,7 @@ export class MemStorage implements IStorage {
   }
 
   private initializeProducts() {
+    // SimpleSip Portable Matcha Maker
     const simpleSipProduct: Product = {
       id: this.currentProductId++,
       name: "SimpleSip Portable Matcha Maker",
@@ -75,6 +76,51 @@ export class MemStorage implements IStorage {
       inStock: 100,
     };
     this.products.set(simpleSipProduct.id, simpleSipProduct);
+
+    // SimpleSip Flavor Powders
+    const flavorPowders: Omit<Product, 'id'>[] = [
+      {
+        name: "SimpleSip Vanilla Matcha Powder",
+        description: "Perfectly compatible with your SimpleSip Portable Matcha Maker. This smooth vanilla blend combines premium matcha with natural vanilla extract for a creamy, aromatic experience. Made with all-natural ingredients and no artificial flavors. Easy to mix and perfect for both hot and iced preparations. The subtle sweetness of vanilla perfectly complements the earthy matcha notes.",
+        price: 700, // $7.00 in cents
+        imageUrl: "/attached_assets/Gemini_Generated_Image_30ir0p30ir0p30ir_1753378078401.png",
+        inStock: 50,
+      },
+      {
+        name: "SimpleSip Strawberry Matcha Powder",
+        description: "Designed specifically for your SimpleSip Portable Matcha Maker. This delightful strawberry matcha blend features real strawberry powder and premium matcha for a fruity, refreshing taste. All-natural ingredients with no artificial flavors or colors. Mixes effortlessly and tastes amazing both hot and cold. The sweet berry flavor creates a perfect balance with the rich matcha base.",
+        price: 700, // $7.00 in cents
+        imageUrl: "/attached_assets/Gemini_Generated_Image_30ir0p30ir0p30ir (1)_1753378065417.png",
+        inStock: 50,
+      },
+      {
+        name: "SimpleSip Chai Spice Matcha Powder",
+        description: "Exclusively formulated for your SimpleSip Portable Matcha Maker. This exotic blend combines traditional chai spices (cinnamon, cardamom, ginger, cloves) with premium matcha powder. Made with organic spices and no artificial additives. Easy to prepare and delicious served hot or iced. The warming spices create a unique fusion that enhances the matcha's natural complexity.",
+        price: 700, // $7.00 in cents
+        imageUrl: "/attached_assets/Gemini_Generated_Image_30ir0p30ir0p30ir (2)_1753378060421.png",
+        inStock: 50,
+      },
+      {
+        name: "SimpleSip Blueberry Matcha Powder",
+        description: "Optimized for your SimpleSip Portable Matcha Maker. This antioxidant-rich blend combines freeze-dried blueberry powder with premium matcha for a vibrant, healthful drink. All-natural ingredients with no artificial flavors or preservatives. Blends smoothly and tastes incredible hot or cold. The sweet-tart blueberry flavor pairs beautifully with the grassy notes of matcha.",
+        price: 700, // $7.00 in cents
+        imageUrl: "/attached_assets/Gemini_Generated_Image_30ir0p30ir0p30ir (3)_1753378057239.png",
+        inStock: 50,
+      },
+      {
+        name: "SimpleSip Banana Matcha Powder",
+        description: "Specially crafted for your SimpleSip Portable Matcha Maker. This tropical blend features real banana powder and premium matcha for a creamy, naturally sweet flavor. Made with organic ingredients and no artificial additives. Mixes instantly and is perfect for both hot and iced beverages. The banana's natural sweetness and creaminess creates a smooth, satisfying matcha experience.",
+        price: 700, // $7.00 in cents
+        imageUrl: "/attached_assets/Gemini_Generated_Image_30ir0p30ir0p30ir (4)_1753378053462.png",
+        inStock: 50,
+      }
+    ];
+
+    // Add all flavor powders to storage
+    flavorPowders.forEach(powder => {
+      const product: Product = { ...powder, id: this.currentProductId++ };
+      this.products.set(product.id, product);
+    });
   }
 
   async getUser(id: number): Promise<User | undefined> {

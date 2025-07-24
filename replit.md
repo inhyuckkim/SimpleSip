@@ -2,7 +2,19 @@
 
 ## Overview
 
-SimpleSip is a modern e-commerce website built for selling the SimpleSip Portable Matcha Maker, an innovative device that allows users to make perfect matcha beverages anywhere. The application targets females aged 10-30 who value convenience and quality in their beverage preparation. The site features a product showcase, cart functionality, order management, and customer engagement tools.
+SimpleSip is a modern e-commerce website built for selling the SimpleSip Portable Matcha Maker and a complete line of SimpleSip Flavor Powders. The main product is an innovative device that allows users to make perfect matcha beverages anywhere, complemented by five premium flavor powder varieties. The application targets females aged 10-30 who value convenience and quality in their beverage preparation. The site features a comprehensive product catalog, cart functionality, order management, and customer engagement tools.
+
+## Recent Changes (January 2025)
+
+- **Product Line Expansion**: Added 5 SimpleSip Flavor Powder products ($7 each)
+  - Vanilla Matcha Powder
+  - Strawberry Matcha Powder  
+  - Chai Spice Matcha Powder
+  - Blueberry Matcha Powder
+  - Banana Matcha Powder
+- **Enhanced Product Page**: Redesigned to showcase both main device and flavor powders
+- **Home Page Enhancement**: Added flavor powders preview section
+- **Comprehensive Product Descriptions**: All flavor powders include compatibility messaging with the main device
 
 ## User Preferences
 
